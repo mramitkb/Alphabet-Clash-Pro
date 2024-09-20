@@ -28,14 +28,35 @@ function handleKeyboardPress(event) {
 
     // 3. conditions apply
     if(playerPressed === currentAlphabet) {
+    // score update
+        // 1. which element i want to update
+    const currentScore = getElementUpdatedValueById('current-score');
+    // 2. update it
+    const newScore = currentScore + 1;
+    // 3. display it
+    setElementUpdatedValueById('current-score', newScore)
+        
         removeBGColorById(currentAlphabet);
         continueGame()
-        console.log('right');
     }
     else {
-        console.log('Wrong');
+        // get
+        const currentLife = getElementUpdatedValueById('current-life');
+        // new life
+        const newLife = currentLife - 1;
+        // display it
+        setElementUpdatedValueById('current-life', newLife);
+        // another condition
+        if(newLife === 0) {
+            gameOver()
+            console.log('go to hell');
+        }
     }
-    console.log(currentAlphabet, playerPressed);
+}
+
+function gameOver() {
+    hideScreenById('playground-screen');
+    showScreenById('gameOver-screen');
 }
 
 /**

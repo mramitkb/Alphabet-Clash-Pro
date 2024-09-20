@@ -18,16 +18,23 @@ function removeBGColorById(elementId) {
     const element = document.getElementById(elementId);
     element.classList.remove('bg-orange-400');
 }
-// get current alphabet from playground screen
-function getCurrentTextById(elementId) {
-    const element = document.getElementById(elementId);
-    console.log(element.innerText);
-}
+// get random alphabet
 function generateARandomAlphabet() {
-    // 1. get random alphabet
     const alphabetsString = 'abcdefghijklmnopqrstuvwxyz';
     const alphabets = alphabetsString.split('');
     const getRandomNumber = Math.round(Math.random() * 25);
     const alphabet = alphabets[getRandomNumber]
     return alphabet;
+}
+// update score or life
+function getElementUpdatedValueById(elementId) {
+    const elementText = document.getElementById(elementId);
+    const elementValue = elementText.innerText;
+    const element = parseInt(elementValue);
+    return element;
+}
+// display value to the score or life
+function setElementUpdatedValueById(elementId, value) {
+    const element = document.getElementById(elementId);
+    element.innerText = value;
 }
