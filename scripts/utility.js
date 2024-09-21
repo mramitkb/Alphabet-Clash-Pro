@@ -38,3 +38,9 @@ function setElementUpdatedValueById(elementId, value) {
     const element = document.getElementById(elementId);
     element.innerText = value;
 }
+// get current alphabet 
+function getTextElementById(elementId) {
+    const element = document.getElementById(elementId);
+    const elementValue = element.innerText;
+    return elementValue;
+}
